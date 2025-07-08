@@ -5,7 +5,7 @@ function Header() {
     <div className={styles.container}>
         <h1>Contact-App</h1>
         <p>
-            <a href="https://botostart.ir">BotoStart</a> | React.js Full Course
+          React.js Full Course
         </p>
     </div>
   )
