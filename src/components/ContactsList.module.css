@@ -69,3 +69,11 @@
 .item button:hover {
     font-size: 1.5rem;
 }
+
+.item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  accent-color: #304ffe; /* رنگ آبی برای تیک */
+}

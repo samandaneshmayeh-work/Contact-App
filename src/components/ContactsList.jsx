@@ -1,6 +1,6 @@
 import styles from "./ContactsList.module.css";
 
-function ContactsList({ contacts, deleteHandler }) {
+function ContactsList({ contacts, deleteHandler, editHandler, toggleSelect, selectedIds, isSelectMode }) {
 
 
 
@@ -9,12 +9,24 @@ function ContactsList({ contacts, deleteHandler }) {
       <h3>Contacts List</h3>
       {
         contacts.length ? (
-          <ul className={styles.contact}>
+          <ul className={styles.contacts}>
             {contacts.map((contact) => <li key={contact.id} className={styles.item}>
+                {isSelectMode && (
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.includes(contact.id)}
+                    onChange={() => toggleSelect(contact.id)}
+                  />
+                )}
                 <p>{contact.name} {contact.lastName}</p>
                 <p><span>📧</span>{contact.email}</p>
                 <p><span>📞</span>{contact.phone}</p>
-                <button onClick={() => deleteHandler(contact.id)}>🗑️</button>
+                  {!isSelectMode && (
+                    <>
+                      <button onClick={() => editHandler(contact.id)}>✏️</button>
+                      <button onClick={() => deleteHandler(contact.id)}>🗑️</button>
+                    </>
+                  )}
               </li>)}
           </ul>
         ) : (
